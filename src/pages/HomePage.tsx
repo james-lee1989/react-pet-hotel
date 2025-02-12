@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'wouter';
+import React from "react";
+import { Link } from "wouter";
 
-const HomePage: React.FC = () => {
+function HomePage() {
   return (
     <div>
       <h1>Home Page</h1>
@@ -10,14 +10,12 @@ const HomePage: React.FC = () => {
           <Link to="/login">Login</Link>
         </div>
         <div>
-          <Link to="/forms">Forms</Link>
-        </div>
-        <div>
-          TODO: List of forms, or not enough permissions message
+          TODO: Display pets, their favorite toys, and owner, or a not enough
+          permissions message
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default HomePage;

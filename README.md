@@ -1,61 +1,50 @@
-# Build a scrappy form management app.
+# React + TypeScript + Vite
 
-- Turn off AI
-- Use `const [location, setLocation] = useLocation()` from `wouter` package for route navigation.
-  - `setLocation(PATH)` to navigate to a route.
-- There is no api server, use `apiLogin`, `apiGetForms`, `apiGetForm`, `apiUpdateForm` from `src/api/index.ts` to simulate the api calls.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Pages
-- Home Page
-  - Redirect to Login Page if the user is not logged in.
-  - If the user has the `editor` role then the page should also display a list of forms
-  - If not, then display “You don’t have access”
-  - Display a loading indicator while the forms are being fetched
+Currently, two official plugins are available:
 
-- Login Page
-  - The login page should accept a text input.
-  - Value can either be `john` or `jane`
-  - If the login is successful, redirect to the home page
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- Form Edit Page
-  - Redirect to Login Page if the user is not logged in.
-  - Form has a list of questions
-  - The user can add/delete a question
-  - Saving the form should save the questions and return to the home page
-  - Bonus: The user can reorder the questions
+## Expanding the ESLint configuration
 
-## Types
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-```
-export interface Form {
-  id: string;
-  title: string;
-  questions: string[];
-}
+- Configure the top-level `parserOptions` property like this:
 
-export interface User {
-  username: string;
-  role: 'editor' | 'viewer';
-}
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-## API
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-- `/api/v1/login`
-  - POST
-  - Body: { username: string }
-  - Returns: User
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
 
-- `/api/v1/forms`
-  - GET
-  - Returns: Form[]
-  - Can take a while to return the response
-
-- `/api/v1/forms/:id`
-  - GET
-  - Returns: Form
-
-- `/api/v1/forms/:id`
-  - PUT
-  - Body: Form
-  - Returns: Form
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+```

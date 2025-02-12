@@ -1,17 +1,9 @@
 import React, { useState } from 'react';
-import { useLocation } from 'wouter';
 
-const LoginPage: React.FC = () => {
+function LoginPage() {
   const [username, setUsername] = useState('');
-  const [, setLocation] = useLocation();
 
-  const handleLogin = async () => {
-    try {
-      setLocation('/');
-    } catch (error) {
-      console.error('Login failed:', error);
-    }
-  };
+  const handleLogin = async () => {};
 
   return (
     <div>

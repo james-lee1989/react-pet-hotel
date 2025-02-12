@@ -1,21 +1,26 @@
-import React, { useEffect } from 'react';
-import { Router, Route, Switch } from 'wouter';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import FormEditor from './pages/FormEditPage';
-import FormList from './pages/FormListPage';
+import React from "react";
+import { Router, Route, Switch } from "wouter";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const App: React.FC = () => {
+const queryClient = new QueryClient();
+
+function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/"> <HomePage /> </Route>
-        <Route path="/login"> <LoginPage /> </Route>
-        <Route path="/forms" component={FormList} />
-        <Route path="/forms/:id/edit" component={FormEditor} /> 
-      </Switch>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Switch>
+          <Route path="/">
+            <HomePage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+        </Switch>
+      </Router>
+    </QueryClientProvider>
   );
-};
+}
 
 export default App;
