@@ -1,4 +1,23 @@
-import { Owner, Pet, Toy } from "./types";
+import { Owner, Pet, Toy, User } from "./types";
+
+const USERS: User[] = [
+  {
+    username: "jane",
+    role: "admin",
+  },
+  {
+    username: "john",
+    role: "staff",
+  },
+  {
+    username: "sarah",
+    role: "staff",
+  },
+  {
+    username: "mike",
+    role: "admin",
+  },
+];
 
 const PETS: Pet[] = [
   {
@@ -9,6 +28,7 @@ const PETS: Pet[] = [
     breed: "Golden Retriever",
     age: 5,
     type: "Dog",
+    checkedIn: true,
   },
   {
     id: "2",
@@ -18,6 +38,7 @@ const PETS: Pet[] = [
     breed: "German Shorthaired Pointer",
     age: 10,
     type: "Dog",
+    checkedIn: true,
   },
   {
     id: "3",
@@ -27,6 +48,7 @@ const PETS: Pet[] = [
     breed: "Orange Tabby",
     age: 2,
     type: "Cat",
+    checkedIn: false,
   },
   {
     id: "4",
@@ -36,6 +58,7 @@ const PETS: Pet[] = [
     breed: "Persian",
     age: 1,
     type: "Cat",
+    checkedIn: false,
   },
   {
     id: "5",
@@ -45,6 +68,7 @@ const PETS: Pet[] = [
     breed: "Siberian Husky",
     age: 3,
     type: "Dog",
+    checkedIn: false,
   },
   {
     id: "6",
@@ -54,6 +78,7 @@ const PETS: Pet[] = [
     breed: "Labrador Retriever",
     age: 4,
     type: "Dog",
+    checkedIn: false,
   },
   {
     id: "7",
@@ -63,6 +88,7 @@ const PETS: Pet[] = [
     breed: "Maine Coon",
     age: 5,
     type: "Cat",
+    checkedIn: true,
   },
   {
     id: "8",
@@ -72,6 +98,7 @@ const PETS: Pet[] = [
     breed: "Siamese",
     age: 3,
     type: "Cat",
+    checkedIn: true,
   },
   {
     id: "9",
@@ -81,6 +108,7 @@ const PETS: Pet[] = [
     breed: "French Bulldog",
     age: 2,
     type: "Dog",
+    checkedIn: false,
   },
 ];
 
@@ -183,4 +211,4 @@ const TOYS: Toy[] = [
   },
 ];
 
-export { PETS, OWNERS, TOYS };
+export { USERS, PETS, OWNERS, TOYS };

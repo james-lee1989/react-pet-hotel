@@ -15,6 +15,7 @@ interface Pet {
   age: number;
   ownerId: string; // id of owner
   type: "Dog" | "Cat";
+  checkedIn: boolean;
 }
 
 interface Toy {
