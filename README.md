@@ -4,7 +4,9 @@ A local pet hotel needs your help to improve their ability to serve their custom
 
 ## Assignment
 
-You will be implementing basic authentication and authorization for the pet hotel management system as well as some read-only features. Approach this assignment as if you were working on a real-world project, including any planning and testing that you would normally do.
+You will be implementing a basic, contrived version of authentication and authorization for the pet hotel management system as well as some read-only features. Approach this assignment as if you were working on a real-world project, including any planning and testing that you would normally do.
+
+Work in the order on the requirements below. The goal of this exercise is not to finish all requirements; rather, prioritize talking through the decisions you are making and why. Let this be a collaborative conversation as if you are pair-programming with the interviewer.
 
 You are welcome to look up documentation for the language and libraries you use, but please disable any AI tools before you begin.
 
@@ -17,7 +19,6 @@ You are welcome to look up documentation for the language and libraries you use,
 ### Home Page
 
     - Redirect to the Login Page if the user is not logged in; otherwise, display the Pet List.
-    - The user should also be able to logout from the Home Page.
 
 #### Pet List
 
@@ -47,8 +48,9 @@ You are welcome to look up documentation for the language and libraries you use,
 
 - You can use the `wouter` library to handle routing. [Wouter Docs](https://github.com/molefrog/wouter)
 
-### Mocking
+### API
 
+- Assume that you have no control of the API design. Do not make any changes to the mocked endpoints or what data is returned.
 - The API is mocked with `msw`. This will run in both the browser and the test environment, so you can write tests without needing to mock fetch calls. [MSW Docs](https://mswjs.io/docs/)
 
 ### Testing
